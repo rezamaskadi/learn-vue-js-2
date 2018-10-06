@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<!-- foreach ($dataMember as $data) {
+	
+} -->
+
+
+<!-- foreach -->
+<body>
+	<div id="app">
+
+		<ul>
+			<li v-for="(item, index) in listItem">
+				<!-- {{ item.name }} - {{  item.age * 10 }} -->
+				{{ item.name.split('').join() }}
+				<!-- untuk menulis code javascript -->
+
+
+				<!-- {{ item.age * 10 }} -->
+				<!-- menggunakan operator logika -->
+			</li>
+		</ul>
+	
+
+		<!-- // write raw HTML In Vue Js -->
+		<div v-html="rawHtml1">
+			
+		</div>
+
+
+		<ul>
+			<li v-for="amount in 10">
+				{{ amount * 10 }}
+			</li>
+		</ul>
+
+
+	</div>
+</body>
+
+<script>
+// instansiasi untuk vue Js
+// var / let / const
+let vo = new Vue({
+	// kEY : vALUE
+	el: '#app',
+	data: {
+		listItem : [
+			{name: 'Yogya Cinunuk', age: 100},
+			{name: 'Yogya Sunda', age: 200},
+			{name: 'Yogya Kepatihan', age: 100}
+		],
+		rawHtml1 : '<b><i> Yogya Sunda </b></i>' 
+
+
+
+		// MUTATING ( mengubah object aslinya)
+		// push,pop,shift,unsift
+		// NON MUTATING ( Tidak mengubah object aslinya)
+		// concat,slice
+	}	
+})	
+</script>
+
+</html>

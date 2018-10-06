@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+
+<body>
+	<div id="app">
+		<vm-test v-if="active"></vm-test>
+		<button @click="destroyComponent">Destroy Component</button>	
+	</div>
+</body>
+
+<script>
+// 
+Vue.component('vm-test', { 
+template: `<div id="debug">{{ data }}</div>`, 
+	data () { 
+		return { 
+			data: 'component data'
+		} 
+	}, 
+	beforeDestroy () { 
+	console.log(document.getElementById('debug')) 
+
+	// element id 'debug' null, berhasil di destroy oleh parent template
+
+	}, 
+
+	destroyed () { 
+	console.log(document.getElementById('debug')) 
+	// element id 'debug' null, berhasil di destroy oleh parent template
+	} 
+}); 
+
+
+let vo = new Vue({
+	el: '#app',
+	data() {
+		return {
+			active: true
+		}
+	},
+	methods: {
+		destroyComponent () {
+			this.active = false
+		}
+	}
+})
+</script>
+
+</html>

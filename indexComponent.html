@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<button-click></button-click>
+	</div>
+</body>
+
+<script>
+
+let temlat
+// register Component
+Vue.component('button-click', {
+	data: function () {
+		return {
+			count : 0
+		}
+	},
+	template: '<button @click="count++"> You clicked Me {{ count }} times.</button>'
+})
+
+new Vue({ el: '#app'})
+</script>
+</html>

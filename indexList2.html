@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+
+<body>
+	<div id="app">
+
+		<ul>
+			<li v-for="(item, key , index) in items">
+				<p>{{ item.message }} -  Name: {{ item.name }} - {{ key }} - {{ index }}</p>
+			</li>
+		</ul>
+
+		<ul>			
+			<h3>With V-If</h3>
+
+			<li v-for="(item,index) in items">
+				
+				<p v-if="item.message === 'Hello'">Yeay {{ item.message }} - Name : {{ item.name }}</p>
+
+				<p v-else>{{  item.message }} -  Name : {{ item.name }}</p>
+			</li>
+		</ul>
+
+	</div>
+</body>
+
+<script>
+new Vue({
+	// kEY : vALUE
+	el: '#app',
+	data: {
+		items: [
+			{ message: "foo", name:"Anna"},
+			{ message: "bar", name:"John"},
+			{ message: "Hello", name:"Elsa"},
+		]
+	}
+})	
+</script>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+	<div id="app">
+		<input type="text" v-model="name" id="name" @keyup.13="submit"> <br>
+		<input type="text" v-model="address" id="address"> <br>
+		<input type="text" v-model="phone" id="phone"> <br>
+		
+		<!-- cara pertama -->
+		<button v-on:click="submit">Cara Pertama</button>
+		
+		<!-- cara kedua -->
+		<button @click="clickMe">Cara Kedua</button>
+
+	</div>
+</body>
+<!-- v-model ini berfungsi untuk melakukan two way data binding yang mana value pada input yang memiliki attribute directive v-model -->
+<script>
+let vo = new Vue({
+	el: '#app',
+	data: {
+		name : "",
+		address: "",
+		phone: ""
+	},
+	// method adalah kumpulan dari function function yang dimana function ini memiliki tujuan dan tugas masing masing
+	methods: {
+		submit() {
+			alert("Name " + this.name)
+		},
+		clickMe() {
+			alert("Name" + this.name)
+		}
+	}
+})	
+</script>
+
+</html>

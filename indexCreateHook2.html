@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+
+<body>
+  <div id="app">
+    {{ message }} {{ a }}
+  </div>
+</body>
+
+<script>
+ let vo = new Vue({
+  el : '#app',
+  data: {
+    a: 1,
+    message: "Vue Js",
+  },
+
+  // before update sebelum component di muat
+  beforeCreate: function () {
+    this.a = 0 ;
+    console.log("Before Create Is : " + this.a)
+  },
+  // createed sesudah component di muat
+  created: function () {
+    console.log("Created a Is " + this.a)
+  },
+
+  // sebelum template component di render
+  beforeMount: function () {
+    this.a = 5;
+    console.log("beforeMount a Is " + this.a)
+  },
+
+  // setelah template component di render
+  mounted: function () {
+    this.a = this.a + 1;
+    console.log('mounted a is ' + this.a)
+  },
+
+  // ketika stage data sudah di update pada sebuah component
+  beforeUpdate: function () {
+    console.log('before Update ' + this.a)
+  },
+
+  // ketika data berhasil di update dan dom berhasil di render kembali
+  update: function () {
+    console.log("Updated a is " + this.a)
+  },
+
+  // sebelum component itu hilang melakukan action
+  beforeDestroy: function() {
+    console.log('BeforeDestroy a is ' + this.a)
+  },
+
+  // sesudah component melakukan action
+  destroyed: function () {
+    console.log('Destroyed a is ' + this.a)
+  }
+ });
+</script>
+
+</html>

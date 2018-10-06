@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+	<div id="app">
+		<button @click="RerenderDom">
+			Remder Dom !</button>
+		<div id="debug">
+			Dom Already rendered!! <span style="color: red;" @click="removeDom">Remove DOM </span></div>
+	</div>
+</body>
+
+<script>
+// instansiasi untuk vue Js
+// var / let / const
+let vo = new Vue({
+	// kEY : vALUE
+	el: '#app',
+	data:  {
+		data: "Vue Data",
+		renderDom : 0
+	},
+	// before create di jalankan pertama kali pada sebuah component sebelum semuanya di insiasi
+	beforeCreate() {
+		console.log("Hello World");
+	},
+	// mounted Di eksekusi oleh vue setelah template di render 
+	mounted() {
+		console.log("Hello World Mounted");	
+	},
+	beforeUpdate() {
+		console.log('check Before data', this.renderDom)
+		// hasilnya 1 , this renderDpm berhasil di update
+		// 
+		console.log('check before Update re-render', document.getElementById('debug'))
+	},
+	methods: {
+		// same function
+		RerenderDom() {
+			this.renderDom = 1
+		},
+		removeDom() {
+			this.renderDom = 0;
+		}
+	}
+})	
+</script>
+
+</html>
